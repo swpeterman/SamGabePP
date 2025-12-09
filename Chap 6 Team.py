@@ -81,7 +81,49 @@ def search_contact():
     
 
 def edit_contact():
-    print('works3')
+    found = False
+    
+    search = input('Enter the contact you would like to search for: ')
+    name = input('Name: ')
+    street = input('Street Adress: ')
+    phone = input('Phone number: ')
+    email = input('Email Adress: ')
+    
+    try:
+        rec_file = open('contacts.txt', 'r')
+        temp_file = open('temp.txt', 'w')
+        
+        contct = rec_file.readline()
+        
+    while contact != '':
+        old_name = rec_file.readline()
+        old_street = rec_file.readline()
+        old_phone = rec_file.readline()
+        old_email = rec_file.readline()
+        
+        old_name = rec_file.rstrip
+        old_street = rec_file.rstrip
+        old_phone = rec_file.rstrip
+        old_email = rec_file.rstrip
+        
+        if search.lower == old_name.lower():
+            temp_file.write(name + '\n')
+            temp_file.write(street + '\n')
+            temp_file.write(phone + '\n')
+            temp_file.write(email + '\n')
+            found = True
+            
+        else:
+            temp_file.write(old_name + '\n')
+            temp_file.write(old_street + '\n')
+            temp_file.write(old_phone + '\n')
+            temp_file.write(old_email + '\n')
+        contact = rec_file.readline()
+        
+    except Exception as e:
+        print('Error: Error reading file')
+    
+        
 
 def delete_contact():
     found = False
